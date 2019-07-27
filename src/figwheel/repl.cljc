@@ -1272,7 +1272,7 @@
         (do
           (println "Opening URL" open-url)
           (try
-            (browse/browse-url open-url)
+            (future (browse/browse-url open-url))
             (catch Throwable t
               (println "Failed to open browser:" (.getMessage t))))))
       (and (nil? target)
